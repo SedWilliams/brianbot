@@ -3,7 +3,7 @@
   "name": "brianbot",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/SyncCommands.ts",
+  "main": "./src/EventHandler/Client.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
