@@ -15,8 +15,13 @@ client.on(Events.InteractionCreate, (interaction) => {
     if(!interaction.isCommand()) { return }
 
     if(interaction.commandName === "quote") {
-        const quote = MyCommands.handleCommand(interaction.commandName, interaction.options.get("text")?.value, interaction.options.get("person")?.value);
-        interaction.reply(quote || "");
+        const quote = MyCommands.handleCommand(interaction.commandName, interaction.options.get("text")?.value, interaction.options.get("person")?.value, interaction.options.get("context")?.value);
+        interaction.(quote || '').then(
+            res => {
+                res.pin();
+            }
+        );
+
     }
 //    interaction object does not have a value "commandName"
 });

@@ -17,7 +17,7 @@ console.log(getCurrentDateTime());
 export class quote {
    
     
-    public static run(text: String, person: String) {
-        return " \"" + text + " \" -" + person; 
+    public static run(text: String, person: String, context: String) {
+        return " \"" + text + "\" -" + person + " " + getCurrentDateTime() + " (Context: " + context + ")"; 
     }
 }

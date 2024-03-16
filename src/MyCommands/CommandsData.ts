@@ -15,6 +15,11 @@ export const CommandsData: Command[] = [
                 name: "person",
                 description: "person to be quoted",
                 type: 3,
+            },
+            {
+                name: "context",
+                description: "context of the quote",
+                type: 3,
             }
         ]
     },

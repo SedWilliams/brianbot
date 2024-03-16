@@ -15,13 +15,13 @@ export class MyCommands {
         return commands;
     }    
 
-    public static handleCommand(commandName: String, text: any, person: any) {
+    public static handleCommand(commandName: String, text: any, person: any, context: any) {
        if(commandName != (possibleCommands.quote || possibleCommands.dissLogan)) {
            return;
        }
 
        if (commandName === possibleCommands.quote) {
-          return quote.run(text, person);
+          return quote.run(text, person, context);
        }
 
        if(commandName === possibleCommands.dissLogan) {
