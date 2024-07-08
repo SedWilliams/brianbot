@@ -1,5 +1,5 @@
 {
-  "type": "module",
+  "type": "commonjs",
   "name": "brianbot",
   "version": "1.0.0",
   "description": "",
@@ -13,12 +13,13 @@
   "dependencies": {
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.5",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pm2": "^5.4.1"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
     "@types/node": "^20.11.22",
     "tsx": "^4.7.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.5.3"
   }
 }
