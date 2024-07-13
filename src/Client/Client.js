@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var discord_js_1 = require("discord.js");
+var dotenv = require("dotenv");
+var path = require("path");
 var MyCommands_1 = require("../MyCommands/MyCommands");
-//dotenv.config({ path: path.join(process.cwd(), '../.env') });
-var DISCORD_TOKEN = 'MTAwMDE2Nzc2NTkxNjc4NjkwOA.GMm10p.qUfnTHD5T_4Cg56skCO5Gc2BK7yd0JCwiAEcY4';
+dotenv.config({ path: path.join(process.cwd(), '../../.env') });
 //create new connxn to the Discord client, from the bots perspective.
 var client = new discord_js_1.Client({
     intents: [discord_js_1.GatewayIntentBits.Guilds, discord_js_1.GatewayIntentBits.GuildMessages]
@@ -18,7 +19,6 @@ client.on(discord_js_1.Events.InteractionCreate, function (interaction) {
     }
     if (interaction.commandName === "quote") {
         var quote = MyCommands_1.MyCommands.handleCommand(interaction.commandName, (_a = interaction.options.get("text")) === null || _a === void 0 ? void 0 : _a.value, (_b = interaction.options.get("person")) === null || _b === void 0 ? void 0 : _b.value, (_c = interaction.options.get("context")) === null || _c === void 0 ? void 0 : _c.value);
-        interaction.deferReply();
         var channelID = '1227520089214025790';
         var channel = client.channels.cache.get(channelID);
         if (channel && channel.isTextBased()) {
@@ -33,4 +33,4 @@ client.on(discord_js_1.Events.InteractionCreate, function (interaction) {
     }
     //    interaction object does not have a value "commandName"
 });
-client.login(DISCORD_TOKEN);
+client.login(process.env.DISCORD_TOKEN);

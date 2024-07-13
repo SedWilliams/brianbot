@@ -6,8 +6,7 @@ import { create } from "domain";
 import { ChannelManager } from "discord.js";
 
 
-//dotenv.config({ path: path.join(process.cwd(), '../.env') });
-const DISCORD_TOKEN = 'MTAwMDE2Nzc2NTkxNjc4NjkwOA.GMm10p.qUfnTHD5T_4Cg56skCO5Gc2BK7yd0JCwiAEcY4'
+dotenv.config({ path: path.join(process.cwd(), '../../.env') });
 
 //create new connxn to the Discord client, from the bots perspective.
 const client = new Client(
@@ -26,8 +25,6 @@ client.on(Events.InteractionCreate, (interaction) => {
     if(interaction.commandName === "quote") {
         const quote = MyCommands.handleCommand(interaction.commandName, interaction.options.get("text")?.value, interaction.options.get("person")?.value, interaction.options.get("context")?.value);
         
-        interaction.deferReply();
-
         const channelID = '1227520089214025790';
         const channel = client.channels.cache.get(channelID);
         
@@ -44,4 +41,4 @@ client.on(Events.InteractionCreate, (interaction) => {
 //    interaction object does not have a value "commandName"
 });
 
-client.login(DISCORD_TOKEN);
+client.login(process.env.DISCORD_TOKEN);
